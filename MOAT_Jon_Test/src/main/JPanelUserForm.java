@@ -182,7 +182,7 @@ public class JPanelUserForm extends JPanel {
 				textLastName.getText(), textStreetAddress.getText(), textCity.getText(),
 				textState.getText(), textZip.getText(), textPhoneNumber.getText());
 		System.out.println(sbu1.submit_to_database());
-		JPanel jp1 = new JPanelUserFormPage2();
+		JPanel jp1 = new JPanelUserFormPage2(textFirstName.getText(), textLastName.getText());
 		JPanel jptemp = (JPanel) this.getParent();
 		jptemp.setVisible(false);
 		jptemp.removeAll();

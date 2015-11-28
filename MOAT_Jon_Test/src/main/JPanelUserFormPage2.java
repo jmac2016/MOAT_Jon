@@ -9,17 +9,21 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import javax.swing.*;
 public class JPanelUserFormPage2 extends JPanel {
 	private JTextField textCardNumber;
 	private JTextField textCCVNumber;
 	private JTextField textExpDate;
 	private JTextField textFullNameOnCard;
-
+	private String textFirstName, textLastName = "";
 	/**
 	 * Create the panel.
 	 */
-	public JPanelUserFormPage2() {
+	public JPanelUserFormPage2(String textFirstName, String textLastName) {
+		this.textFirstName = textFirstName;
+		this.textLastName = textLastName;
+		
+		
 		
 		JLabel lblEnterPaymentInformation = new JLabel("Enter Payment Information");
 		
@@ -113,7 +117,16 @@ public class JPanelUserFormPage2 extends JPanel {
 	public void submitAndContinue(){
 		Submit_Credit_Info sc1 =  new Submit_Credit_Info(textCardNumber.getText(), 
 				textCCVNumber.getText(), textExpDate.getText(),
-				textFullNameOnCard.getText());
+				textFullNameOnCard.getText(), textFirstName, textLastName);
+		Integer temp = sc1.Sumbit_Credit_To_Database();
+		System.out.println(temp);
+		JPanel jp1 = (JPanel) this.getParent();
+		jp1.setVisible(false);
+		jp1.removeAll();
+		JPanel jptemp = new JPanelUserFormPage3(textFirstName, textLastName);
+		jp1.add(jptemp);
+		jp1.setVisible(true);
+		
 	}
 
 }
