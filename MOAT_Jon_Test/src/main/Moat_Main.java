@@ -15,7 +15,7 @@ public class Moat_Main {
 		//gm1.destroy_in_Frame(jfr1);
 		System.out.println(System.currentTimeMillis());
 		JFrame jfr1 = new JFrame();
-		JPanel jp1 = new ClockAnimation();
+		JPanel jp1 = new JPanelUserForm();
 		jfr1.add(jp1);
 		jfr1.setSize(500, 500);
 		jfr1.setLocationRelativeTo(null);

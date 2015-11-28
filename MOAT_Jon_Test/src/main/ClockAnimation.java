@@ -15,7 +15,7 @@ public class ClockAnimation extends JPanel {
 		Calendar c1 = null;
 		try {
 			date = new Date();
-			date2 = sdf1.parse("2015-11-27 13:32:00");
+			date2 = sdf1.parse("2015-11-27 19:20:00");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,8 +35,16 @@ public class ClockAnimation extends JPanel {
 	private class TimerListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e){
-			initialTime--;
-			jtext1.setText(initialTime.toString());
+			if(initialTime == 0){
+				time1.stop();
+				System.out.println("Hello");
+			}
+			else{
+				System.out.println(initialTime);
+				initialTime--;
+				jtext1.setText(initialTime.toString());
+			}
+			
 			/*if(initialTime == 0){
 				time1.stop();
 			}*/
